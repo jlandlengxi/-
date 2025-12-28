@@ -86,15 +86,6 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 })
 wait(1)
 
-local localPlayer = game:GetService("Players").LocalPlayer
-local groupId = "17317757"
-local appName = "剑客"
-if localPlayer:IsInGroup(17317757) then
-    print("欢迎使用剑客")
-else
-    localPlayer:Kick("被踢解决方法:在Roblox点···然后找到[群组] 搜索[剑客] 加入即可验证成功")
-    setclipboard(groupId)
-end
 print(appName)
 
 local gamePlaceIds = {

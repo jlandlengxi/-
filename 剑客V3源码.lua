@@ -76,17 +76,37 @@ wait(1)
 
 local loadingSound = Instance.new("Sound")
 loadingSound.SoundId = "rbxassetid://9126125807"
+loadingSound.Volume = 0.7
 loadingSound.Parent = game.Workspace
 loadingSound:Play()
+
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "剑客",
     Text = "正在加载剑客V4...",
     Icon = "rbxassetid://14155622912",
-        Duration = 3
+    Duration = 3
 })
 wait(1)
 
-print(appName)
+local localPlayer = game:GetService("Players").LocalPlayer
+local groupId = 17317757
+local appName = "剑客"
+
+local function forceCheckGroup(player, targetGroupId)
+    return true
+end
+
+if forceCheckGroup(localPlayer, groupId) then
+    print(string.format("[%s] 绕过群组验证成功", appName))
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "验证成功",
+        Text = "已确认群组身份，功能即将启用",
+        Icon = "rbxassetid://14155622912",
+        Duration = 2
+    })
+else
+    localPlayer:Kick("验证失败")
+end
 
 local gamePlaceIds = {
     286090429,

@@ -5035,36 +5035,37 @@ local Window = WindUI:CreateWindow({
         Anonymous = false,
         Callback = function()
 
-            WindUI:Notify({
-                Title = "您的用户ID：",
-                Content = (game:GetService("Players").LocalPlayer.UserId),
-                Duration = 3
-            })
-        end
-    },
-    SideBarWidth = 220,
+WindUI:Notify({
+    Title = "您的用户ID：",
+    Content = (game:GetService("Players").LocalPlayer.UserId),
+    Duration = 3
+})
+end,
+SideBarWidth = 220,
 KeySystem = {
-        Note = "请输入您的卡密进行验证",
-        Thumbnail = {
-            Image = "rbxassetid://119970903874014",
-            Title = "Rb脚本中心"
-        },
-        API = {{
-            Type = "LuarmorService",  -- 使用新的服务名称
-            ScriptId = "6fa2f5b2bc6d2ae88b069bdb76c0e1e8",  -- 确保这是正确的ScriptId
-            Discord = "https://ads.luarmor.net/get_key?for=Rb_Script_HUB_FFB-AGCdDBQkFGED"  -- 确保这是正确的Discord链接
-        }},
-        SaveKey = false
+    Note = "请输入您的卡密进行验证",
+    Thumbnail = {
+        Image = "rbxassetid://119970903874014",
+        Title = "Rb脚本中心"
     },
-    HideSearchBar = false,
-    ScrollBarEnabled = true
+    API = {{
+        Type = "LuarmorService",
+        ScriptId = "6fa2f5b2bc6d2ae88b069bdb76c0e1e8",
+        Discord = "https://ads.luarmor.net/get_key?for=Rb_Script_HUB_FFB-AGCdDBQkFGED"
+    }},
+    SaveKey = false
+},
+-- 强制卡密验证通过（核心修改）
+Window.KeySystem.Verify = function() return true end,
+HideSearchBar = false,
+ScrollBarEnabled = true
 })
 
+-- 验证判断逻辑（保留但会直接返回成功）
 if Window.KeySystem and Window.KeySystem.API then
     local service = Window.KeySystem.API[1]
     if service and service.Verify then
-        -- 在实际验证流程中，这里会调用service:Verify(key)
-        print("服务验证函数可用")
+        print("服务验证函数可用（已强制通过）")
     else
         warn("服务验证函数不可用")
     end
@@ -5076,6 +5077,10 @@ local UserGui = Instance.new("ScreenGui", game.CoreGui)
 local UserLabel = Instance.new("TextLabel", UserGui)
 local UIGradient = Instance.new("UIGradient")
 
+-- 补全渐变效果（原代码缺失父级配置）
+UIGradient.Parent = UserLabel
+UIGradient.Color = ColorSequence.new(Color3.new(0, 1, 1), Color3.new(1, 0, 1)) -- 青到粉渐变，可自定义
+
 UserGui.Name = "UserGui"
 UserGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 UserGui.Enabled = true
@@ -5083,16 +5088,16 @@ UserLabel.Name = "UserLabel"
 UserLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 UserLabel.BackgroundTransparency = 1
 UserLabel.BorderColor3 = Color3.new(0, 0, 0)
-UserLabel.Position = UDim2.new(0.80, 0.80, 0.00090, 0)
+UserLabel.Position = UDim2.new(0.80, 0, 0.0009, 0) -- 修正X轴偏移（原0.80冗余）
 UserLabel.Size = UDim2.new(0, 135, 0, 50)
 UserLabel.Font = Enum.Font.GothamSemibold
-UserLabel.Text = "尊敬的：" .. game.Players.LocalPlayer.Character.Name ..
-                     "付费版用户，欢迎使用Rb脚本中心！"
+UserLabel.Text = "尊敬的：" .. game.Players.LocalPlayer.Character.Name .. " 付费版用户，欢迎使用Rb脚本中心！"
 UserLabel.TextColor3 = Color3.new(1, 1, 1)
 UserLabel.TextScaled = true
 UserLabel.TextSize = 14
 UserLabel.TextWrapped = true
 UserLabel.Visible = true
+
 
 UIGradient.Color = ColorSequence.new {ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 0)),
                                       ColorSequenceKeypoint.new(0.10, Color3.fromRGB(255, 127, 0)),

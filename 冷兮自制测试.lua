@@ -539,6 +539,15 @@ local Button = Tab:Button({
 })
 
 local Button = Tab:Button({
+    Title = "DM脚本",
+    Desc = "",
+    Locked = false,
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/shenmi9178/DMHUB/refs/heads/main/%E5%86%AC%E6%9F%90%E4%B8%AD%E5%BF%83%20DM%20HUB.lua"))()
+    end
+})
+
+local Button = Tab:Button({
     Title = "叶脚本",
     Desc = "",
     Locked = false,

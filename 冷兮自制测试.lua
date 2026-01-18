@@ -438,6 +438,7 @@ local Button = Tab:Button({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaokong6/x1/refs/heads/main/黄某脚本加载器"))()
     end
 })
+
 local Button = Tab:Button({
     Title = "skin脚本",
     Desc = "",
@@ -447,6 +448,14 @@ local Button = Tab:Button({
     end
 })
 
+local Button = Tab:Button({
+    Title = "WY脚本",
+    Desc = "",
+    Locked = false,
+    Callback = function()
+        loadstring(game:HttpGet("https://latlat.lat/script/raw/WuYueTian/WYT-Hub"))()
+    end
+})
 
 local Button = Tab:Button({
     Title = "安脚本中心",
@@ -507,7 +516,7 @@ local Button = Tab:Button({
     Desc = "",
     Locked = false,
     Callback = function()
-        loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/d6dffe74a774f7983c29a61dbfaef705a7c1bbd193c1bb68d778cb4bb4c302ae/download"))()
+        loadstring(game:HttpGet("https://gitee.com/BS_script/script/raw/master/BS_Script.Luau"))()
     end
 })
 
@@ -539,12 +548,13 @@ local Button = Tab:Button({
 })
 
 local Button = Tab:Button({
-    Title = "DM脚本",
+    Title = "Q1脚本",
     Desc = "",
     Locked = false,
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/shenmi9178/DMHUB/refs/heads/main/%E5%86%AC%E6%9F%90%E4%B8%AD%E5%BF%83%20DM%20HUB.lua"))()
+        loadstring(game:HttpGet("https://latlat.lat/script/raw/Q1-Hub"))()
     end
+        
 })
 
 local Button = Tab:Button({
@@ -609,6 +619,7 @@ local Button = Tab:Button({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/eksan966/Deyu-Zhongshan/refs/heads/main/pojieban"))()
     end
 })
+
 local Tab = Tabs.Main:Tab({
     Title = "客户端",
     Icon = "layout-grid",

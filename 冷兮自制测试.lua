@@ -395,30 +395,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/
 })
 
 Window:SelectTab(2) -- Number of Tab
-local Tab = Tabs.Settings:Tab({
-    Title = "俄亥俄州",
-    Icon = "layout-grid",
-    Locked = false,
-    
-    local Button = Tab:Button({
-    Title = "TNINE HUB",
-    Desc = "",
-    Locked = false,
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/jhvjjf555/-/9a62ee01ee9433ada9a23276930db8bed6343ef9/%E4%BF%84%E4%BA%A5%E4%BF%84%E5%B7%9E.lua"))()
-    end
-})
-
-local Button = Tab:Button({
-    Title = "SNOW",
-    Desc = "汉化但是老版本",
-    Locked = false,
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/aaajackmiller-hub/Fang/main/snow%20Ohio.lua", true))()
-    end
-})
-
-Window:SelectTab(2) -- Number of Tab
 
 local Tab = Tabs.Main:Tab({
     Title = "各大脚本中心",

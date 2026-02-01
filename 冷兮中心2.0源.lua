@@ -39,7 +39,7 @@ local Window = WindUI:CreateWindow({
 -- 编辑打开按钮
 Window:EditOpenButton({
     StrokeThickness = 3,
-    Title = "lx",
+    Title = "lx脚本正式版",
     Color = ColorSequence.new({
         ColorSequenceKeypoint.new(0, Color3.fromRGB(144, 238, 144)),
         ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 100, 0)),
@@ -406,7 +406,7 @@ tabs["通用"]:Paragraph({
 })
 
 tabs["通用"]:Button({
-    Title = "fpsBooster(很猛的提升fps)",
+    Title = "fpsBooster(提升fps英文版)",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/JoshzzAlteregooo/JoshzzFpsBoosterVersion3/refs/heads/main/JoshzzNewFpsBooster"))()
     end,

@@ -31,7 +31,7 @@ local Window = WindUI:CreateWindow({
     Title = "lx脚本",
     Transparent = true,
     Folder = "CloudHub",
-    Author = "柳叶制作",
+    Author = "冷兮制作",
     Icon = "leaf",
     Size = UDim2.fromOffset(560, 360),
 })
@@ -97,7 +97,7 @@ tabs["通用"]:Paragraph({
 tabs["通用"]:Button({
     Title = "复制QQ群[获取最新消息]",
     Callback = function()
-        setclipboard("1075751127")
+        setclipboard("1064245855")
     end,
 })
 

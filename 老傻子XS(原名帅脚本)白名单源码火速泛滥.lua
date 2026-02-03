@@ -10,8 +10,8 @@ local localPlayer = Players.LocalPlayer
 -- ====================== 白名单系统 ======================
 local WHITELIST = {
     ["laozhuangpixyx"] = true,
-    ["3980224147"] = true,
-    ["701682546"] = true,
+    ["dijida93"] = true,
+    ["6hsjhzhpamgq"] = true,
     ["9357193003"] = true,
     ["9181349777"] = true,
     ["826171502"] = true,

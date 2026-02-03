@@ -12,11 +12,11 @@ local WHITELIST = {
     ["laozhuangpixyx"] = true,
     ["dijida93"] = true,
     ["6hsjhzhpamgq"] = true,
-    ["9357193003"] = true,
-    ["9181349777"] = true,
-    ["826171502"] = true,
-    ["7760543937"] = true,
-    ["9099458985"] = true,
+    ["03"] = true,
+    ["47"] = true,
+    ["02"] = true,
+    ["937"] = true,
+    ["85"] = true,
 }
 
 local function checkWhitelist()
@@ -265,7 +265,7 @@ GroupLabel.BackgroundTransparency = 1
 GroupLabel.Position = UDim2.new(0, 45, 0, 8)
 GroupLabel.Size = UDim2.new(0, 120, 0, 16)
 GroupLabel.Font = Enum.Font.GothamBold
-GroupLabel.Text = "点击复制群号"
+GroupLabel.Text = "傻子xshub"
 GroupLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
 GroupLabel.TextSize = 11 -- 缩小字体
 GroupLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -278,7 +278,7 @@ GroupNumber.BackgroundTransparency = 1
 GroupNumber.Position = UDim2.new(0, 45, 0, 24)
 GroupNumber.Size = UDim2.new(0, 120, 0, 20)
 GroupNumber.Font = Enum.Font.GothamBlack
-GroupNumber.Text = "1015159552"
+GroupNumber.Text = "卡密为lxnb"
 GroupNumber.TextColor3 = Color3.fromRGB(255, 255, 255)
 GroupNumber.TextSize = 18 -- 缩小字体
 GroupNumber.TextXAlignment = Enum.TextXAlignment.Left
@@ -439,7 +439,7 @@ AttemptsDisplay.Text = string.format("剩余尝试次数: %d/%d", maxAttempts - 
 AttemptsDisplay.TextColor3 = Color3.fromRGB(180, 180, 180)
 AttemptsDisplay.TextSize = 10
 AttemptsDisplay.TextXAlignment = Enum.TextXAlignment.Center
-AttemptsDisplay.ZIndex = 3
+AttemptsDisplay.ZIndex = 1
 
 -- ========== 关闭按钮 ==========
 local CloseBtn = Instance.new("TextButton")
@@ -787,7 +787,7 @@ CopyButton.MouseButton1Click:Connect(function()
     }):Play()
     
     -- 显示消息提示
-    showMessage("✅ 群号已复制到剪贴板", Color3.fromRGB(80, 255, 80), 2)
+    showMessage("✅ 点你妈草泥马的", Color3.fromRGB(80, 255, 80), 2)
     
     task.wait(1)
     copyCooldown = false

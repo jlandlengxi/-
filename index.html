@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>滚动抽奖</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+  body{background:#f4f2f3;padding:20px;display:flex;flex-direction:column;align-items:center;gap:16px}
+
+  .inputs{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;max-width:400px}
+  .inputs input{
+    padding:10px;border:1px solid #ddd;border-radius:8px;font-size:14px;
+    color:#333;
+  }
+  .inputs input::placeholder {
+    color:#999;
+  }
+
+  .btn{padding:12px 24px;border:none;border-radius:10px;font-size:16px;color:#fff;cursor:pointer}
+  .start{background:#4a6cf3}
+  .stop{background:#ff4444}
+
+  .roll-box{
+    width:100%;max-width:400px;height:80px;
+    background:#fff;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;font-weight:bold;color:#333;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1)
+  }
+
+  /* 右下角灰色小字 */
+  .sign {
+    width: 100%;
+    max-width: 400px;
+    text-align: right;
+    font-size: 12px;
+    color: #bbb;
+    margin-top: -10px;
+  }
+
+  .result-list{
+    width:100%;max-width:400px;
+    background:#fff;border-radius:12px;padding:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1)
+  }
+  .result-list h3{margin-bottom:10px;font-size:16px}
+  .result-item{font-size:15px;line-height:1.6;margin:4px 0}
+</style>
+
+<body>
+
+<div class="inputs">
+  <input type="text" class="item" placeholder="请填写内容">
+  <input type="text" class="item" placeholder="请填写内容">
+  <input type="text" class="item" placeholder="请填写内容">
+  <input type="text" class="item" placeholder="请填写内容">
+  <input type="text" class="item" placeholder="请填写内容">
+  <input type="text" class="item" placeholder="请填写内容">
+  <input type="text" class="item" placeholder="请填写内容">
+  <input type="text" class="item" placeholder="请填写内容">
+</div>
+
+<button class="btn start" onclick="startRoll()">开始滚动</button>
+<button class="btn stop" onclick="stopRoll()">停止抽奖</button>
+
+<div class="roll-box" id="rollBox">准备抽奖</div>
+<!-- 签名 -->
+<div class="sign">by.Samsung</div>
+
+<div class="result-list">
+  <h3>抽奖结果</h3>
+  <div id="resultContainer"></div>
+</div>
+
+<script>
+let items = [];
+let rollInterval;
+let isRolling = false;
+let resultList = [];
+
+const rollBox = document.getElementById('rollBox');
+const resultContainer = document.getElementById('resultContainer');
+
+function updateItems() {
+  const inputs = document.querySelectorAll('.item');
+  items = Array.from(inputs)
+    .map(i => i.value.trim())
+    .filter(v => v !== '');
+}
+
+function startRoll() {
+  updateItems();
+  if (items.length === 0) {
+    alert('请至少填写一个抽奖内容');
+    return;
+  }
+  if (isRolling) return;
+  isRolling = true;
+
+  rollInterval = setInterval(() => {
+    const idx = Math.floor(Math.random() * items.length);
+    rollBox.innerText = items[idx];
+  }, 20); // 这里数字越小滚
+}
+
+function stopRoll() {
+  if (!isRolling) return;
+  clearInterval(rollInterval);
+  isRolling = false;
+
+  const idx = Math.floor(Math.random() * items.length);
+  const winner = items[idx];
+  rollBox.innerText = winner;
+
+  resultList.push(winner);
+  showResults();
+}
+
+function showResults() {
+  let html = '';
+  resultList.forEach((item, index) => {
+    html += `<div class="result-item">${index + 1}. ${item}</div>`;
+  });
+  resultContainer.innerHTML = html;
+}
+</script>
+</body>
+</html>
